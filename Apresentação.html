@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Corporativo - Tray</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #1a202c;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(63, 81, 181, 0.9), rgba(103, 58, 183, 0.9)), url('https://placehold.co/1920x1080/313442/ffffff?text=E-commerce') center center/cover no-repeat;
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .logo-grid img {
+            transition: transform 0.3s ease;
+            filter: grayscale(100%);
+            opacity: 0.8;
+        }
+        .logo-grid img:hover {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        /* Estilos para o diagrama interativo */
+        #strategy-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            margin: auto;
+        }
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            height: 30%;
+            background-color: #4a5568;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .strategy-item {
+            position: absolute;
+            width: 28%; /* Tamanho dos itens externos */
+            height: 28%;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.7rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .strategy-item:hover {
+            transform: scale(1.1);
+            z-index: 20;
+            background-color: #3f51b5;
+            color: white;
+        }
+        .strategy-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+        #strategy-details {
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                <span class="text-indigo-600">Tray</span> Plano Corporativo
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#estrategia" class="text-gray-600 hover:text-indigo-600">Estratégia</a>
+                <a href="#marcas" class="text-gray-600 hover:text-indigo-600">Nossas Marcas</a>
+                <a href="#cases" class="text-gray-600 hover:text-indigo-600">Cases de Sucesso</a>
+                <a href="#contato" class="text-gray-600 hover:text-indigo-600">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white">
+        <div class="container mx-auto px-6 py-24 text-center">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">A Solução Completa para seu E-commerce</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Cadastre seus produtos em poucos cliques e impulsione suas vendas com a plataforma de e-commerce que mais cresce no Brasil.</p>
+            <a href="#contato" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300">Comece a Vender Agora!</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Nossas Marcas Section -->
+        <section id="marcas" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Nossas Marcas</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center logo-grid">
+                    <img src="https://logo.clearbit.com/locaweb.com.br" alt="Locaweb" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/tray.com.br" alt="Tray" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/bling.com.br" alt="Bling" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/wake.com.br" alt="Wake" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/octadesk.com" alt="Octadesk" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/king.host" alt="KingHost" class="mx-auto h-12">
+                    <img src="https://logo.clearbit.com/vindi.com.br" alt="Vindi" class="mx-auto h-12">
+                </div>
+            </div>
+        </section>
+
+        <!-- Estratégia Section -->
+        <section id="estrategia" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Nossa Estratégia Unificada</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2">
+                        <div id="strategy-diagram">
+                            <div class="center-circle">
+                                <img src="https://logo.clearbit.com/tray.com.br?size=80" alt="Tray Logo" class="rounded-full">
+                            </div>
+                            <!-- Itens do diagrama serão posicionados via JS -->
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                         <div id="strategy-details" class="p-8 rounded-lg bg-gray-100 transition-all duration-300">
+                             <h3 id="details-title" class="text-2xl font-bold text-gray-800 mb-4">Ecossistema Completo</h3>
+                             <p id="details-text" class="text-gray-600">Passe o mouse sobre um item do diagrama para ver os detalhes. Nossa plataforma oferece o maior ecossistema de integrações e a maior rede de parceiros para garantir que você venda em vários canais e administre tudo em um só lugar.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Papel do Consultor Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Nosso Papel Estratégico</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-green-600 mb-4">O que fazemos?</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i><span>Elaboramos planos de ação com acompanhamento.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i><span>Orientamos sobre boas práticas e soluções nativas.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i><span>Sugerimos melhorias com foco em conversão.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i><span>Direcionamos com base em dados e indicadores.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i><span>Acompanhamos toda a jornada do cliente.</span></li>
+                        </ul>
+                    </div>
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold text-red-600 mb-4">O que não fazemos?</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><span>Prestamos suporte técnico direto (bugs, configurações).</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><span>Criamos ou gerenciamos campanhas de publicidade.</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><span>Executamos tarefas operacionais (cadastro, layout).</span></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><span>Atuamos como desenvolvedor, designer ou agência.</span></li>
+                             <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><span>Realizamos acompanhamento diário (foco estratégico).</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases de Sucesso Section -->
+        <section id="cases" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Cases de Sucesso</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 items-center logo-grid">
+                    <img src="https://logo.clearbit.com/futemax.app" alt="Fut Fanatics" class="mx-auto h-16">
+                    <img src="https://logo.clearbit.com/cepera.com.br" alt="Cepera" class="mx-auto h-16">
+                    <img src="https://logo.clearbit.com/power1one.com.br" alt="Power One" class="mx-auto h-16">
+                    <img src="https://logo.clearbit.com/vasco.com.br" alt="Vasco Store" class="mx-auto h-16">
+                    <img src="https://logo.clearbit.com/redbull.com" alt="Red Bull" class="mx-auto h-16">
+                </div>
+            </div>
+        </section>
+
+        <!-- Unidades Section -->
+         <section id="unidades" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Nossas Unidades</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card overflow-hidden">
+                        <img src="https://placehold.co/600x400/667eea/ffffff?text=Equipe+Tray" alt="Equipe Tray" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Nossa Equipe</h3>
+                            <p class="text-gray-600 mt-2">Profissionais dedicados ao seu sucesso.</p>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden">
+                         <img src="https://placehold.co/600x400/764ba2/ffffff?text=Marília" alt="Unidade de Marília" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Unidade Marília</h3>
+                            <p class="text-gray-600 mt-2">O coração da nossa operação e inovação.</p>
+                        </div>
+                    </div>
+                     <div class="card overflow-hidden">
+                        <img src="https://placehold.co/600x400/4299e1/ffffff?text=São+Paulo" alt="Unidade de São Paulo" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Unidade São Paulo</h3>
+                            <p class="text-gray-600 mt-2">Conectados ao maior centro de negócios do país.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer / Contato -->
+    <footer id="contato" class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Sobre a Tray</h3>
+                    <p class="text-gray-400">Com mais de 20 anos de história, somos a unidade de e-commerce do Grupo Locaweb, oferecendo a mais completa e competitiva solução do mercado.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Canais de Atendimento</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>E-mail/Ticket via painel</li>
+                        <li><i class="fas fa-comments mr-2"></i>Chat via painel</li>
+                        <li><i class="fas fa-phone mr-2"></i>(11) 2111-8700</li>
+                        <li><i class="fab fa-whatsapp mr-2"></i>(14) 99184-1775</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Fale com um Consultor</h3>
+                    <div class="flex items-center justify-center md:justify-start">
+                        <div class="text-left">
+                            <p class="font-bold">Gabriel Mattos</p>
+                            <p class="text-sm text-gray-400">Consultor de Sucesso do Cliente</p>
+                            <p class="mt-2 text-indigo-400">gabriel.almeida@tray.net.br</p>
+                            <p class="text-indigo-400">(14) 97402-6650</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Tray E-commerce. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const diagram = document.getElementById('strategy-diagram');
+            const detailsTitle = document.getElementById('details-title');
+            const detailsText = document.getElementById('details-text');
+
+            const items = [
+                { icon: 'fa-solid fa-cogs', title: 'APIs Abertas', text: 'Nossas APIs públicas e abertas permitem evoluções e integrações customizadas para o seu negócio.' },
+                { icon: 'fa-solid fa-store', title: 'Lojas de Serviços', text: 'Plataforma robusta para vender não apenas produtos, mas também serviços online.' },
+                { icon: 'fa-solid fa-credit-card', title: 'Pagamentos', text: 'Soluções de pagamento integradas para facilitar suas transações e aumentar a conversão.' },
+                { icon: 'fa-solid fa-layer-group', title: 'Omnichannel', text: 'Venda em múltiplos canais (loja, marketplaces, redes sociais) e gerencie tudo de forma centralizada.' },
+                { icon: 'fa-solid fa-bullhorn', title: 'Marketing & Vendas', text: 'Ferramentas de marketing digital para atrair, converter e fidelizar clientes.' },
+                { icon: 'fa-solid fa-truck', title: 'Logística', text: 'Integrações com as principais transportadoras e soluções de frete para otimizar suas entregas.' },
+                { icon: 'fa-solid fa-headset', title: 'Suporte', text: 'Equipe de suporte dedicada para ajudar a resolver suas dúvidas e problemas rapidamente.' },
+                 { icon: 'fa-solid fa-graduation-cap', title: 'Educação', text: 'Acesso a treinamentos, Escola de E-commerce e comunidades para capacitar sua equipe.' }
+            ];
+
+            const radius = diagram.offsetWidth / 2.5;
+            const angleStep = (2 * Math.PI) / items.length;
+
+            items.forEach((item, i) => {
+                const angle = i * angleStep - (Math.PI / 2); // Start from top
+                const x = Math.cos(angle) * radius + (diagram.offsetWidth / 2);
+                const y = Math.sin(angle) * radius + (diagram.offsetHeight / 2);
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'strategy-item';
+                itemEl.style.left = `calc(${x}px - 14%)`; // center the element
+                itemEl.style.top = `calc(${y}px - 14%)`;
+                itemEl.innerHTML = `<i class="icon ${item.icon}"></i><span>${item.title}</span>`;
+                
+                itemEl.addEventListener('mouseover', () => {
+                    detailsTitle.textContent = item.title;
+                    detailsText.textContent = item.text;
+                });
+
+                diagram.appendChild(itemEl);
+            });
+            
+             // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
